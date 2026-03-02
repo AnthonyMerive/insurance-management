@@ -23,6 +23,7 @@ components:
         transactionId:
           type: string
           format: uuid
+          example: "550e8400-e29b-41d4-a716-446655440000"
         message:
           type: string
           example: "success"
@@ -31,6 +32,7 @@ components:
           example: 200
         data:
           type: object
+          description: "Datos de respuesta (puede ser un objeto, array o null)"
 
     Customer:
       type: object
@@ -42,18 +44,24 @@ components:
         id:
           type: integer
           format: int64
+          example: 1
         firstName:
           type: string
+          example: "Ana"
         lastName:
           type: string
+          example: "Perez"
         email:
           type: string
           format: email
+          example: "ana.perez@example.com"
         phoneNumber:
           type: string
+          example: "+57-300-000-0000"
         birthDate:
           type: string
           format: date
+          example: "1990-01-15"
 
     Policy:
       type: object
@@ -64,36 +72,68 @@ components:
         id:
           type: integer
           format: int64
+          example: 1
         customerId:
           type: integer
           format: int64
+          example: 1
         type:
           type: string
           enum: [VIDA, VEHICULO, SALUD]
+          example: "VIDA"
         beneficiaries:
           type: array
           items:
             $ref: '#/components/schemas/Person'
+          example:
+            - firstName: "Luis"
+              lastName: "Gomez"
+              dni: "12345678"
         insuredVehicles:
           type: array
           items:
             type: string
+          example: ["ABC123", "XYZ789"]
         extraParents:
           type: integer
+          example: 0
         extraChildren:
           type: integer
+          example: 1
         hasSpouse:
           type: boolean
+          example: true
 
     Person:
       type: object
       properties:
         firstName:
           type: string
+          example: "Luis"
         lastName:
           type: string
+          example: "Gomez"
         dni:
           type: string
+          example: "12345678"
+
+    ErrorResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+          format: uuid
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        message:
+          type: string
+          example: "Error en la operación"
+        code:
+          type: integer
+          example: 400
+        data:
+          type: object
+          nullable: true
+          example: null
 
 paths:
   /api/customers:
@@ -113,6 +153,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
+        '400':
+          description: Datos inválidos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
     get:
       summary: Obtener todos los clientes
       tags: [Customers]
@@ -141,6 +193,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
+        '400':
+          description: Datos inválidos o reglas de negocio no cumplidas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    get:
+      summary: Obtener todas las pólizas
+      tags: [Policies]
+      responses:
+        '200':
+          description: Lista de todas las pólizas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
 
   /api/customers/{id}:
     get:
@@ -160,6 +234,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
+        '404':
+          description: Cliente no encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
     put:
       summary: Actualizar cliente
       tags: [Customers]

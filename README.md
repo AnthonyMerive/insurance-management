@@ -1,13 +1,17 @@
 # Sistema de Gestión de Seguros
 
-![Java Version](https://img.shields.io/badge/Java-21_LTS-red?logo=java)
-![Spring WebFlux](https://img.shields.io/badge/Spring_WebFlux-3.4.3-success?logo=spring)
-![R2DBC](https://img.shields.io/badge/R2DBC-H2-blue)
-![Gradle](https://img.shields.io/badge/Gradle-9.0-success?logo=gradle)
-![Docker Compose](https://img.shields.io/badge/Docker_Compose-enabled-blue?logo=docker)
-![OpenAPI](https://img.shields.io/badge/OpenAPI-2.8.5-brightgreen?logo=swagger)
-![JUnit 5](https://img.shields.io/badge/JUnit-5-green?logo=junit5)
-![Mockito](https://img.shields.io/badge/Mockito-5-orange)
+![Java](https://img.shields.io/badge/Java-21_LTS-ED8B00?style=flat&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4.3-6DB33F?style=flat&logo=spring&logoColor=white)
+![Spring WebFlux](https://img.shields.io/badge/Spring_WebFlux-Reactive-6DB33F?style=flat&logo=spring&logoColor=white)
+![R2DBC](https://img.shields.io/badge/R2DBC-H2-blue?style=flat)
+![Gradle](https://img.shields.io/badge/Gradle-9.0.0-02303A?style=flat&logo=gradle&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=flat&logo=docker&logoColor=white)
+![Lombok](https://img.shields.io/badge/Lombok-Enabled-BC4521?style=flat)
+![OpenAPI](https://img.shields.io/badge/OpenAPI-3.0-85EA2D?style=flat&logo=swagger&logoColor=white)
+![Springdoc](https://img.shields.io/badge/Springdoc-2.8.5-6DB33F?style=flat)
+![JUnit 5](https://img.shields.io/badge/JUnit-5-25A162?style=flat&logo=junit5&logoColor=white)
+![Mockito](https://img.shields.io/badge/Mockito-5-green?style=flat)
+![Gson](https://img.shields.io/badge/Gson-2.11.0-orange?style=flat)
 
 Este proyecto es una solución modularizada para la gestión de clientes y pólizas de una aseguradora, utilizando **JAVA 21**, **Spring Boot 3.4.3 (Webflux)** y una **Arquitectura Hexagonal**.
 
@@ -46,6 +50,11 @@ El proyecto incluye una suite completa de pruebas unitarias para:
 ## Documentación de API
 Se ha generado una especificación consolidada de la API en formato OpenAPI:
 -   `docs/api/openapi.yml`: Definición de endpoints de clientes y pólizas.
+-   `docs/api/insurance-management.postman_collection.json`: Colección de Postman lista para importar.
+
+### 📖 Guías de Documentación
+- **[API-REFERENCE.md](API-REFERENCE.md)**: Referencia rápida de todos los endpoints con ejemplos
+- **[DEPLOYMENT.md](DEPLOYMENT.md)**: Guía completa de despliegue, pruebas y solución de problemas
 
 ## Documentación de Arquitectura
 Los diagramas detallados de la solución se encuentran en la carpeta `docs/diagrams/`:
@@ -63,6 +72,10 @@ Modelo de datos:
 
 ![Modelo de datos](docs/images/data-model.png)
 
+Arquitectura AWS propuesta:
+
+![Arquitectura AWS](docs/images/aws-architecture.png)
+
 ### Fuentes editables (XML)
 
 -   `docs/diagrams/architecture.xml`
@@ -70,6 +83,50 @@ Modelo de datos:
 -   `docs/diagrams/aws-architecture.xml`
 
 ## Cómo Correr Localmente
+
+### Usando Scripts de Ayuda (Recomendado)
+
+**Windows (PowerShell):**
+```powershell
+# Compilar proyecto
+.\scripts\run.ps1 build
+
+# Levantar servicios
+.\scripts\run.ps1 up
+
+# Ver logs
+.\scripts\run.ps1 logs
+
+# Detener servicios
+.\scripts\run.ps1 down
+
+# Ejecutar pruebas
+.\scripts\run.ps1 test
+```
+
+**Mac/Linux (Bash):**
+```bash
+# Dar permisos de ejecución (solo primera vez)
+chmod +x scripts/run.sh
+
+# Compilar proyecto
+./scripts/run.sh build
+
+# Levantar servicios
+./scripts/run.sh up
+
+# Ver logs
+./scripts/run.sh logs
+
+# Detener servicios
+./scripts/run.sh down
+
+# Ejecutar pruebas
+./scripts/run.sh test
+```
+
+### Método Manual
+
 1. Clonar el repositorio.
 2. Tener instalado **Java 21**, **Docker** y **Docker Compose**.
 3. Desde la raíz del proyecto, construir y correr los servicios:
