@@ -47,13 +47,13 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew clean build
+        run: ./gradlew :services:customer-service:build :services:policy-service:build
 
       - name: Run tests
-        run: ./gradlew test
+        run: ./gradlew :services:customer-service:test :services:policy-service:test
 
       - name: Generate JavaDoc
-        run: ./gradlew javadoc
+        run: ./gradlew :services:customer-service:javadoc :services:policy-service:javadoc
         continue-on-error: true
 
       - name: Upload test results
@@ -100,11 +100,11 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Check code style
-        run: ./gradlew check -x test
+        run: ./gradlew :services:customer-service:check :services:policy-service:check -x test
         continue-on-error: true
 
       - name: Generate code coverage
-        run: ./gradlew test jacocoTestReport
+        run: ./gradlew :services:customer-service:test :services:policy-service:test jacocoTestReport
         continue-on-error: true
 
       - name: Upload coverage to Codecov
@@ -231,7 +231,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Generate JavaDoc
-        run: ./gradlew javadoc
+        run: ./gradlew :services:customer-service:javadoc :services:policy-service:javadoc
 
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
