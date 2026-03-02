@@ -43,6 +43,9 @@ jobs:
         with:
           gradle-version: wrapper
 
+      - name: Grant execute permission to gradlew
+        run: chmod +x ./gradlew
+
       - name: Build with Gradle
         run: ./gradlew clean build
 
@@ -92,6 +95,9 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
+
+      - name: Grant execute permission to gradlew
+        run: chmod +x ./gradlew
 
       - name: Check code style
         run: ./gradlew check -x test
@@ -165,6 +171,8 @@ jobs:
 
   # ============================================================
   # DEPENDENCY SUBMISSION JOB
+  # Note: Requires "Dependency graph" enabled in repository settings
+  # See: Settings → Code security and analysis → Dependency graph
   # ============================================================
   dependency-submission:
     name: Dependency Submission
@@ -183,8 +191,12 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
+      - name: Grant execute permission to gradlew
+        run: chmod +x ./gradlew
+
       - name: Generate and submit dependency graph
         uses: gradle/actions/dependency-submission@v3
+        continue-on-error: true
 
   # ============================================================
   # DOCUMENTATION DEPLOYMENT JOB
@@ -214,6 +226,9 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
+
+      - name: Grant execute permission to gradlew
+        run: chmod +x ./gradlew
 
       - name: Generate JavaDoc
         run: ./gradlew javadoc
