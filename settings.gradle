@@ -1,0 +1,4 @@
+rootProject.name = 'insurance-management'
+include 'services:customer-service'
+include 'services:policy-service'
+

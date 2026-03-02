@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: policy-service
+  r2dbc:
+    url: r2dbc:h2:mem:///policydb;DB_CLOSE_DELAY=-1
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: false
+  profiles:
+    active: dev
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
+    tags-sorter: alpha
+server:
+  port: 8082
