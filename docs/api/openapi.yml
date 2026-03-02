@@ -142,6 +142,61 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
 
+  /api/customers/{id}:
+    get:
+      summary: Obtener cliente por ID
+      tags: [Customers]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Cliente obtenido exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+    put:
+      summary: Actualizar cliente
+      tags: [Customers]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: Cliente actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+    delete:
+      summary: Eliminar cliente
+      tags: [Customers]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Cliente eliminado exitosamente
+
   /api/policies/customer/{customerId}:
     get:
       summary: Obtener pólizas de un cliente
@@ -156,6 +211,44 @@ paths:
       responses:
         '200':
           description: Lista de pólizas del cliente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+
+  /api/policies/{id}:
+    get:
+      summary: Obtener póliza por ID
+      tags: [Policies]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Póliza obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+
+  /api/policies/{id}/beneficiaries:
+    get:
+      summary: Obtener beneficiarios de una póliza
+      tags: [Policies]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Lista de beneficiarios de la póliza
           content:
             application/json:
               schema:

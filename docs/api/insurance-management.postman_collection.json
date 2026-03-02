@@ -1,0 +1,127 @@
+{
+  "info": {
+    "name": "Insurance Management API",
+    "description": "Coleccion basada en docs/api/openapi.yml",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "customerBaseUrl",
+      "value": "http://localhost:8081"
+    },
+    {
+      "key": "policyBaseUrl",
+      "value": "http://localhost:8082"
+    },
+    {
+      "key": "customerId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "Crear cliente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Ana\",\n  \"lastName\": \"Perez\",\n  \"email\": \"ana.perez@example.com\",\n  \"phoneNumber\": \"+57-300-000-0000\",\n  \"birthDate\": \"1990-01-15\"\n}"
+            },
+            "url": "{{customerBaseUrl}}/api/customers"
+          }
+        },
+        {
+          "name": "Listar clientes",
+          "request": {
+            "method": "GET",
+            "url": "{{customerBaseUrl}}/api/customers"
+          }
+        },
+        {
+          "name": "Obtener cliente por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{customerBaseUrl}}/api/customers/{{customerId}}"
+          }
+        },
+        {
+          "name": "Actualizar cliente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Ana\",\n  \"lastName\": \"Perez Martinez\",\n  \"email\": \"ana.perez.updated@example.com\",\n  \"phoneNumber\": \"+57-300-111-1111\",\n  \"birthDate\": \"1990-01-15\"\n}"
+            },
+            "url": "{{customerBaseUrl}}/api/customers/{{customerId}}"
+          }
+        },
+        {
+          "name": "Eliminar cliente",
+          "request": {
+            "method": "DELETE",
+            "url": "{{customerBaseUrl}}/api/customers/{{customerId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Policies",
+      "item": [
+        {
+          "name": "Crear poliza",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": 1,\n  \"type\": \"VIDA\",\n  \"beneficiaries\": [\n    {\n      \"firstName\": \"Luis\",\n      \"lastName\": \"Gomez\",\n      \"dni\": \"12345678\"\n    }\n  ],\n  \"insuredVehicles\": [\n    \"ABC123\"\n  ],\n  \"extraParents\": 0,\n  \"extraChildren\": 1,\n  \"hasSpouse\": true\n}"
+            },
+            "url": "{{policyBaseUrl}}/api/policies"
+          }
+        },
+        {
+          "name": "Listar polizas por cliente",
+          "request": {
+            "method": "GET",
+            "url": "{{policyBaseUrl}}/api/policies/customer/{{customerId}}"
+          }
+        },
+        {
+          "name": "Obtener poliza por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{policyBaseUrl}}/api/policies/1"
+          }
+        },
+        {
+          "name": "Obtener beneficiarios de poliza",
+          "request": {
+            "method": "GET",
+            "url": "{{policyBaseUrl}}/api/policies/1/beneficiaries"
+          }
+        }
+      ]
+    }
+  ]
+}
+
