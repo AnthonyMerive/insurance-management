@@ -24,6 +24,14 @@
 
 👉 **Archivo:** [QUICK-COMMANDS.md](QUICK-COMMANDS.md)
 
+### 3. **GITHUB-ACTIONS.md** - CI/CD Pipeline
+- Workflow automático
+- Comparación y mejoras
+- Configuración
+- Monitoreo
+
+👉 **Archivo:** [GITHUB-ACTIONS.md](GITHUB-ACTIONS.md)
+
 ---
 
 ## 📖 Documentación Técnica
