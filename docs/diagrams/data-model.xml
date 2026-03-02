@@ -1,55 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net">
-  <diagram name="Modelo de Datos Seguros">
-    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram name="Modelo de Datos Seguros" id="0">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <!-- Entidad Customer -->
-        <mxCell id="entCustomer" value="Customer&#xa;(Microservice 1)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLastChild=1;collapsible=1;marginBottom=0;align=center;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="80" y="80" width="200" height="150" as="geometry" />
+        <mxCell id="KPsDjzLr5OIspfV1tf4J-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="300" width="320" x="410" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="c_id" value="PK: id (Long)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="entCustomer">
-          <mxGeometry y="26" width="200" height="30" as="geometry" />
+        <mxCell id="entPolicy" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLastChild=1;collapsible=1;marginBottom=0;align=center;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" value="Policy" vertex="1">
+          <mxGeometry height="200" width="240" x="450" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="c_name" value="firstName (String)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="entCustomer">
-          <mxGeometry y="56" width="200" height="30" as="geometry" />
+        <mxCell id="p_id" parent="entPolicy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="PK: id (Long)" vertex="1">
+          <mxGeometry height="30" width="240" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="c_email" value="email (String)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="entCustomer">
-          <mxGeometry y="86" width="200" height="30" as="geometry" />
+        <mxCell id="p_bene" parent="entPolicy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="beneficiaries (JSON/Person)" vertex="1">
+          <mxGeometry height="30" width="240" y="56" as="geometry" />
         </mxCell>
-        <mxCell id="c_birth" value="birthDate (LocalDate)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="entCustomer">
-          <mxGeometry y="116" width="200" height="34" as="geometry" />
+        <mxCell id="p_extra" parent="entPolicy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="extraData (JSON Map)" vertex="1">
+          <mxGeometry height="54" width="240" y="86" as="geometry" />
         </mxCell>
-
-        <!-- Entidad Policy -->
-        <mxCell id="entPolicy" value="Policy&#xa;(Microservice 2)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLastChild=1;collapsible=1;marginBottom=0;align=center;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="440" y="80" width="240" height="210" as="geometry" />
+        <mxCell id="p_cust" parent="entPolicy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;" value="FK: customerId (Long)" vertex="1">
+          <mxGeometry height="30" width="240" y="140" as="geometry" />
         </mxCell>
-        <mxCell id="p_id" value="PK: id (Long)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="entPolicy">
-          <mxGeometry y="26" width="240" height="30" as="geometry" />
+        <mxCell id="p_type" parent="entPolicy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="type (PolicyType Enum)" vertex="1">
+          <mxGeometry height="30" width="240" y="170" as="geometry" />
         </mxCell>
-        <mxCell id="p_cust" value="FK: customerId (Long)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;" vertex="1" parent="entPolicy">
-          <mxGeometry y="56" width="240" height="30" as="geometry" />
+        <mxCell id="KPsDjzLr5OIspfV1tf4J-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="300" width="280" x="40" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="p_type" value="type (PolicyType Enum)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="entPolicy">
-          <mxGeometry y="86" width="240" height="30" as="geometry" />
+        <mxCell id="entCustomer" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLastChild=1;collapsible=1;marginBottom=0;align=center;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Customer" vertex="1">
+          <mxGeometry height="150" width="200" x="80" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="p_bene" value="beneficiaries (JSON/Person)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="entPolicy">
-          <mxGeometry y="116" width="240" height="30" as="geometry" />
+        <mxCell id="c_id" parent="entCustomer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="PK: id (Long)" vertex="1">
+          <mxGeometry height="30" width="200" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="p_extra" value="extraData (JSON Map)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="entPolicy">
-          <mxGeometry y="146" width="240" height="64" as="geometry" />
+        <mxCell id="c_name" parent="entCustomer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="firstName (String)" vertex="1">
+          <mxGeometry height="30" width="200" y="56" as="geometry" />
         </mxCell>
-
-        <!-- Relación conceptual -->
-        <mxCell id="rel" value="1 : N&#xa;(Shared ID)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;sourcePoint=[[1,0.5]];targetPoint=[[0,0.5]];exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="entCustomer" target="p_cust">
+        <mxCell id="c_email" parent="entCustomer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="email (String)" vertex="1">
+          <mxGeometry height="30" width="200" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="c_birth" parent="entCustomer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="birthDate (LocalDate)" vertex="1">
+          <mxGeometry height="34" width="200" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="rel" edge="1" parent="1" source="entCustomer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;sourcePoint=[[1,0.5]];targetPoint=[[0,0.5]];exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="p_cust" value="1 : N&#xa;(Shared ID)">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
+        <mxCell id="KPsDjzLr5OIspfV1tf4J-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Customer domain" vertex="1">
+          <mxGeometry height="30" width="100" x="80" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KPsDjzLr5OIspfV1tf4J-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Policy domain" vertex="1">
+          <mxGeometry height="30" width="80" x="450" y="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
 </mxfile>
-

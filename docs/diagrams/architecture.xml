@@ -1,56 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net">
-  <diagram name="Arquitectura Seguros">
-    <mxGraphModel dx="1422" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram name="Arquitectura Seguros" id="0">
+    <mxGraphModel dx="983" dy="1681" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <!-- Cliente -->
-        <mxCell id="client" value="Web/Mobile Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="40" y="240" width="120" height="60" as="geometry" />
+        <mxCell id="client" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Web/Mobile Client" vertex="1">
+          <mxGeometry height="60" width="120" x="420" y="-10" as="geometry" />
         </mxCell>
-
-        <!-- Customer Service Hexagon -->
-        <mxCell id="customerService" value="Customer Service&#xa;(Webflux &amp; Hexagonal)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
-          <mxGeometry x="240" y="80" width="200" height="360" as="geometry" />
+        <mxCell id="customerService" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="Customer Service" vertex="1">
+          <mxGeometry height="360" width="200" x="180" y="-40" as="geometry" />
         </mxCell>
-        <mxCell id="custApi" value="REST API (In)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="customerService">
-          <mxGeometry x="40" y="40" width="120" height="40" as="geometry" />
+        <mxCell id="custApi" parent="customerService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="REST API (In)" vertex="1">
+          <mxGeometry height="40" width="120" x="40" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="custDomain" value="Domain (Hexagon)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="customerService">
-          <mxGeometry x="40" y="120" width="120" height="80" as="geometry" />
+        <mxCell id="custDomain" parent="customerService" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Domain (Hexagon)" vertex="1">
+          <mxGeometry height="80" width="120" x="40" y="120" as="geometry" />
         </mxCell>
-        <mxCell id="custRepo" value="R2DBC H2 (Out)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="customerService">
-          <mxGeometry x="40" y="240" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="custTrace" value="Traceability (Out)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="customerService">
-          <mxGeometry x="40" y="300" width="120" height="40" as="geometry" />
-        </mxCell>
-
-        <!-- Policy Service Hexagon -->
-        <mxCell id="policyService" value="Policy Service&#xa;(Webflux &amp; Hexagonal)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
-          <mxGeometry x="520" y="80" width="200" height="360" as="geometry" />
-        </mxCell>
-        <mxCell id="polApi" value="REST API (In)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="policyService">
-          <mxGeometry x="40" y="40" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="polDomain" value="Domain (Hexagon)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="policyService">
-          <mxGeometry x="40" y="120" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="polRepo" value="R2DBC H2 (Out)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="policyService">
-          <mxGeometry x="40" y="240" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="polTrace" value="Traceability (Out)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="policyService">
-          <mxGeometry x="40" y="300" width="120" height="40" as="geometry" />
-        </mxCell>
-
-        <!-- Conexiones -->
-        <mxCell id="c1" edge="1" parent="1" source="client" target="custApi">
+        <mxCell id="XO74-77H_cnUdeJqvoUt-1" edge="1" parent="customerService" source="custRepo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="custTrace" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="c2" edge="1" parent="1" source="client" target="polApi">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="custRepo" parent="customerService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="R2DBC H2 (Out)" vertex="1">
+          <mxGeometry height="40" width="120" x="40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="custTrace" parent="customerService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Traceability (Out)" vertex="1">
+          <mxGeometry height="40" width="120" x="40" y="300" as="geometry" />
         </mxCell>
         <mxCell id="c3" edge="1" parent="customerService" source="custApi" target="custDomain">
           <mxGeometry relative="1" as="geometry" />
@@ -58,22 +31,40 @@
         <mxCell id="c4" edge="1" parent="customerService" source="custDomain" target="custRepo">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="c5" edge="1" parent="customerService" source="custDomain" target="custTrace">
+        <mxCell id="policyService" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="Policy Service" vertex="1">
+          <mxGeometry height="360" width="200" x="590" y="-40" as="geometry" />
+        </mxCell>
+        <mxCell id="polApi" parent="policyService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="REST API (In)" vertex="1">
+          <mxGeometry height="40" width="120" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="polDomain" parent="policyService" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Domain (Hexagon)" vertex="1">
+          <mxGeometry height="80" width="120" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="XO74-77H_cnUdeJqvoUt-2" edge="1" parent="policyService" source="polRepo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="polTrace" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
+        <mxCell id="polRepo" parent="policyService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="R2DBC H2 (Out)" vertex="1">
+          <mxGeometry height="40" width="120" x="40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="polTrace" parent="policyService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Traceability (Out)" vertex="1">
+          <mxGeometry height="40" width="120" x="40" y="300" as="geometry" />
+        </mxCell>
         <mxCell id="c6" edge="1" parent="policyService" source="polApi" target="polDomain">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="c7" edge="1" parent="policyService" source="polDomain" target="polRepo">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="c8" edge="1" parent="policyService" source="polDomain" target="polTrace">
+        <mxCell id="c1" edge="1" parent="1" source="client" target="custApi">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
+        <mxCell id="c2" edge="1" parent="1" source="client" target="polApi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XO74-77H_cnUdeJqvoUt-3" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="User" vertex="1">
+          <mxGeometry height="60" width="30" x="465" y="-100" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
 </mxfile>
-

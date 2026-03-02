@@ -1,5 +1,14 @@
 # Sistema de Gestión de Seguros
 
+![Java Version](https://img.shields.io/badge/Java-21_LTS-red?logo=java)
+![Spring WebFlux](https://img.shields.io/badge/Spring_WebFlux-3.4.3-success?logo=spring)
+![R2DBC](https://img.shields.io/badge/R2DBC-H2-blue)
+![Gradle](https://img.shields.io/badge/Gradle-9.0-success?logo=gradle)
+![Docker Compose](https://img.shields.io/badge/Docker_Compose-enabled-blue?logo=docker)
+![OpenAPI](https://img.shields.io/badge/OpenAPI-2.8.5-brightgreen?logo=swagger)
+![JUnit 5](https://img.shields.io/badge/JUnit-5-green?logo=junit5)
+![Mockito](https://img.shields.io/badge/Mockito-5-orange)
+
 Este proyecto es una solución modularizada para la gestión de clientes y pólizas de una aseguradora, utilizando **JAVA 21**, **Spring Boot 3.4.3 (Webflux)** y una **Arquitectura Hexagonal**.
 
 ## Estructura del Proyecto
@@ -29,15 +38,6 @@ Todas las APIs devuelven un formato de respuesta unificado `ApiResponse<T>` que 
 *   **TransactionId**: Generado automáticamente mediante un `WebFilter` y propagado a través de todo el flujo reactivo.
 *   **Excepciones**: Uso de `BusinessException` para capturar violaciones de reglas de negocio, con mapeo automático en un `GlobalExceptionHandler` reactivo.
 
-## Tecnologías
-- **Java 21**
-- **Spring Webflux** (Programación Reactiva)
-- **R2DBC** con **H2** (Base de datos en memoria)
-- **Gradle 9** (Gestión de dependencias multi-proyecto)
-- **Docker Compose**
-- **Swagger/OpenAPI 2.8.5**
-- **JUnit 5 & Mockito** (Pruebas unitarias con `@MockitoBean` para Spring Boot 3.4+)
-
 ## Calidad de Código y Pruebas
 El proyecto incluye una suite completa de pruebas unitarias para:
 -   **Servicios (Capa de Aplicación)**: Pruebas de lógica de negocio y validaciones con `StepVerifier`.
@@ -52,6 +52,22 @@ Los diagramas detallados de la solución se encuentran en la carpeta `docs/diagr
 -   `architecture.xml`: Diagrama de componentes y flujo de datos local.
 -   `data-model.xml`: Modelo de datos de las entidades de seguros.
 -   `aws-architecture.xml`: Propuesta de arquitectura escalable en AWS para 40M de clientes.
+
+### Diagramas (PNG)
+
+Diagrama de componentes y flujo local:
+
+![Arquitectura local](docs/images/architecture.png)
+
+Modelo de datos:
+
+![Modelo de datos](docs/images/data-model.png)
+
+### Fuentes editables (XML)
+
+-   `docs/diagrams/architecture.xml`
+-   `docs/diagrams/data-model.xml`
+-   `docs/diagrams/aws-architecture.xml`
 
 ## Cómo Correr Localmente
 1. Clonar el repositorio.
@@ -98,3 +114,7 @@ Para escalar a 40 millones de clientes:
 5. **Caching**: **Amazon ElastiCache (Redis)** para reducir latencia en consultas frecuentes de clientes.
 6. **Mensajería**: **Amazon SQS/SNS** o **Amazon MSK (Kafka)** para comunicación asíncrona entre servicios (ej. emitir factura al crear póliza).
 7. **Seguridad**: **AWS WAF** frente al API Gateway y **AWS Secrets Manager** para credenciales.
+
+Diagrama de referencia:
+
+![Arquitectura AWS](docs/images/aws-architecture.png)

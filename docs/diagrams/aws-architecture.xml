@@ -1,57 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net">
-  <diagram name="Arquitectura AWS">
-    <mxGraphModel dx="1422" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram name="Arquitectura AWS" id="0">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <!-- API Gateway -->
-        <mxCell id="apigw" value="Amazon API Gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9900;strokeColor=#000000;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="60" y="240" width="140" height="60" as="geometry" />
+        <mxCell id="apigw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9900;strokeColor=#000000;fontColor=#ffffff;fontStyle=1" value="Amazon API Gateway" vertex="1">
+          <mxGeometry height="60" width="140" x="80" y="220" as="geometry" />
         </mxCell>
-
-        <!-- VPC -->
-        <mxCell id="vpc" value="AWS VPC" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
-          <mxGeometry x="250" y="40" width="480" height="460" as="geometry" />
+        <mxCell id="vpc" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" value="AWS VPC" vertex="1">
+          <mxGeometry height="370" width="650" x="250" y="40" as="geometry" />
         </mxCell>
-
-        <!-- Public Subnet (ALB) -->
-        <mxCell id="alb" value="Application Load Balancer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="vpc">
-          <mxGeometry x="40" y="180" width="120" height="60" as="geometry" />
+        <mxCell id="alb" parent="vpc" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Application Load Balancer" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="180" as="geometry" />
         </mxCell>
-
-        <!-- ECS Fargate Cluster -->
-        <mxCell id="ecs" value="ECS Fargate Cluster" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="vpc">
-          <mxGeometry x="200" y="80" width="240" height="260" as="geometry" />
+        <mxCell id="ecs" parent="vpc" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ECS Fargate Cluster" vertex="1">
+          <mxGeometry height="260" width="240" x="200" y="80" as="geometry" />
         </mxCell>
-
-        <mxCell id="cust_srv" value="Customer Service&#xa;(Containerized)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="ecs">
-          <mxGeometry x="40" y="50" width="160" height="60" as="geometry" />
+        <mxCell id="cust_srv" parent="ecs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Customer Service&#xa;(Containerized)" vertex="1">
+          <mxGeometry height="60" width="160" x="40" y="50" as="geometry" />
         </mxCell>
-
-        <mxCell id="pol_srv" value="Policy Service&#xa;(Containerized)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="ecs">
-          <mxGeometry x="40" y="150" width="160" height="60" as="geometry" />
+        <mxCell id="pol_srv" parent="ecs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Policy Service&#xa;(Containerized)" vertex="1">
+          <mxGeometry height="60" width="160" x="40" y="180" as="geometry" />
         </mxCell>
-
-        <!-- DB Layer -->
-        <mxCell id="rds" value="Amazon Aurora Serverless&#xa;(PostgreSQL)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="vpc">
-          <mxGeometry x="260" y="370" width="120" height="60" as="geometry" />
+        <mxCell id="rds" parent="vpc" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Amazon Aurora&amp;nbsp;&lt;br&gt;(PostgreSQL)" vertex="1">
+          <mxGeometry height="60" width="120" x="490" y="170" as="geometry" />
         </mxCell>
-
-        <!-- Redis Cache -->
-        <mxCell id="redis" value="Amazon ElastiCache&#xa;(Redis)" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="vpc">
-          <mxGeometry x="40" y="360" width="120" height="70" as="geometry" />
+        <mxCell id="redis" parent="vpc" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Amazon ElastiCache&#xa;(Redis)" vertex="1">
+          <mxGeometry height="70" width="120" x="490" y="70" as="geometry" />
         </mxCell>
-
-        <!-- SQS Messaging -->
-        <mxCell id="sqs" value="Amazon SQS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="vpc">
-          <mxGeometry x="370" y="40" width="90" height="30" as="geometry" />
-        </mxCell>
-
-        <!-- Conexiones -->
-        <mxCell id="c1" edge="1" parent="1" source="apigw" target="alb">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="sqs" parent="vpc" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Amazon SQS" vertex="1">
+          <mxGeometry height="30" width="90" x="505" y="275" as="geometry" />
         </mxCell>
         <mxCell id="c2" edge="1" parent="vpc" source="alb" target="cust_srv">
           <mxGeometry relative="1" as="geometry" />
@@ -71,9 +49,10 @@
         <mxCell id="c7" edge="1" parent="vpc" source="pol_srv" target="sqs">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
+        <mxCell id="c1" edge="1" parent="1" source="apigw" target="alb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
 </mxfile>
-
