@@ -24,8 +24,6 @@ docs/
 │   ├── JAVADOC-SUMMARY.md
 │   ├── ARCHITECTURE.md
 │   └── API-REFERENCE.md
-└── changelog/                         # Historial de cambios
-    └── CHANGELOG.md
 ```
 
 ## 🔗 Enlaces Rápidos
@@ -51,9 +49,6 @@ docs/
 - [Modelo de Datos](diagrams/data-model.xml) - Estructura de datos
 - [Arquitectura AWS](diagrams/aws-architecture.xml) - Propuesta AWS
 
-### 📝 Histórico
-- [Registro de Cambios](changelog/CHANGELOG.md) - Historial de versiones
-
 ## 📌 Notas
 
 - Todos los archivos de documentación se encuentran en esta carpeta `docs/`
@@ -72,9 +67,3 @@ docs/
 | Quiero entender el código | [technical/JAVADOC-SUMMARY.md](technical/JAVADOC-SUMMARY.md) |
 | Necesito documentación de API | [technical/API-REFERENCE.md](technical/API-REFERENCE.md) |
 | Quiero ver la arquitectura | [technical/ARCHITECTURE.md](technical/ARCHITECTURE.md) |
-| Busco cambios realizados | [changelog/CHANGELOG.md](changelog/CHANGELOG.md) |
-
----
-
-**Última actualización:** 2 de Marzo, 2026
-
