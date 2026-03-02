@@ -275,14 +275,3 @@ docker-compose logs -f policy-service
 # Los logs aparecen en la consola donde ejecutaste bootRun
 ```
 
-## 🎯 Siguiente Pasos
-
-1. ✅ Levantar servicios con Docker
-2. ✅ Importar colección de Postman
-3. ✅ Probar endpoints básicos
-4. ✅ Verificar Swagger UI
-5. ✅ Revisar bases de datos H2
-6. 🔜 Implementar pruebas de integración
-7. 🔜 Configurar CI/CD
-8. 🔜 Desplegar en AWS
-

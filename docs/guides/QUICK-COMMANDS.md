@@ -421,27 +421,6 @@ docker-compose logs -f
 
 ---
 
-## 🚀 Deploy en Producción
-
-```bash
-# Compilar sin tests
-./gradlew build -x test
-
-# Generar imágenes Docker
-docker-compose build --no-cache
-
-# Levantar en producción
-docker-compose -f docker-compose.yml up -d
-
-# Ver estado
-docker-compose ps
-
-# Ver logs
-docker-compose logs -f
-```
-
----
-
 ## 📊 Monitoreo
 
 ```bash
@@ -497,10 +476,3 @@ cat docs/guides/DEPLOYMENT.md
 ```
 
 ---
-
-**¡Guarde este documento para referencia rápida!** 📌
-
----
-
-**Actualizado:** 2 de Marzo, 2026
-
