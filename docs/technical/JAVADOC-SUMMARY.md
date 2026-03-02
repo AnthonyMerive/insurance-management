@@ -234,9 +234,3 @@ Sí, edita los comentarios `/** ... */` en el código fuente. El HTML se regener
 
 ### ¿Hay ejemplos?
 Sí, especialmente en controladores y servicios. Algunos incluyen JSON y URLs.
-
----
-
-**Última actualización:** 2 de Marzo, 2026  
-**Estado:** ✅ Documentación Completa (100% de cobertura)
-

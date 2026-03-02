@@ -284,14 +284,10 @@ En caso de error:
 
 ### Mediano Plazo
 - Caché con Redis
-- Mensajería con RabbitMQ
+- Mensajería con RabbitMQ o AWS SQS
 - Configuración centralizada
 
 ### Largo Plazo
 - Despliegue en AWS
 - Monitoreo con Prometheus/Grafana
-
----
-
-**Última actualización:** 2 de Marzo, 2026
 

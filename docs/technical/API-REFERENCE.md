@@ -253,8 +253,3 @@ curl http://localhost:8082/api/policies/customer/1
 - **Postman Collection:** `../api/insurance-management.postman_collection.json`
 - **Swagger UI Customer:** `http://localhost:8081/swagger-ui.html`
 - **Swagger UI Policy:** `http://localhost:8082/swagger-ui.html`
-
----
-
-**Última actualización:** 2 de Marzo, 2026
-
